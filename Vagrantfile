@@ -22,6 +22,9 @@ Vagrant.configure("2") do |config|
   end
 
   # public network => bridged
-  config.vm.network "public_network"
+  config.vm.network "public_network", bridge: "wlp7s0"
+
+  # install and configure software
+  config.vm.provision :shell, :path => "bootstrap.sh"
 
 end
